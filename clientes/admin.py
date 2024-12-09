@@ -1,6 +1,4 @@
 from django.contrib import admin
-from .models import Contato
-from .models import Vip
+from .models import Cliente
 
-admin.site.register(Contato)
-admin.site.register(Vip)
+admin.site.register(Cliente)
