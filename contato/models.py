@@ -3,7 +3,7 @@ from django.db import models
 class Contato(models.Model):
     nome = models.CharField(max_length=150)
     email = models.EmailField()
-    descricao = models.TextField()
+    mensagem = models.TextField()
 
-    def _str_(self):
+    def __str__(self):
         return self.nome

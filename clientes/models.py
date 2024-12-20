@@ -5,8 +5,8 @@ class Cliente(models.Model):
     email = models.EmailField()
     avaliação_da_padaria = models.TextField()
     Cartão_Fidelidade = models.BooleanField()
-    foto_do_cliente = models.ImageField(upload_to='Cliente', blank=True, null=True)
+    foto_do_cliente = models.ImageField(upload_to='media/Clientes', blank=True, null=True)
 
 
-    def _str_(self):
+    def __str__(self):
         return self.nome
