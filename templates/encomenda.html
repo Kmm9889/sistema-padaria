@@ -31,7 +31,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/encomenda">Encomenda</a>
+                <a class="nav-link" href="/encomenda">Encomenda</a>
             </li>
 
             <li class="nav-item">
@@ -43,11 +43,51 @@
       </div>
     </nav>
 
-
-      <form action="{% url 'contato' %}" method="POST">
         {% csrf_token %}
+
+        <h1>Faça seu Pedido</h1>
+
+        <form method="POST">
+          {% csrf_token %}
+          
+          <label for="nome_da_pessoa">Nome</label>
+          <input type="text" name="nome_da_pessoa" required>
+          <br>
+          <br>
+      
+          <label for="numero_de_telefone">Número de Telefone</label>
+          <input type="number" name="numero_de_telefone" required>
+          <br>
+          <br>
+      
+          <label for="Produto_reservado">Produto</label>
+          <input type="text" name="Produto_reservado" required>
+          <br>
+          <br>
+      
+          <label for="endereço_da_entrega">Endereço da Entrega</label>
+          <input type="text" name="endereço_da_entrega" required>
+          <br>
+          <br>
+      
+          <label for="forma_de_pagamento">Forma de Pagamento</label>
+          <select name="forma_de_pagamento" required>
+              <option value="pix">Pix</option>
+              <option value="debito">Débito</option>
+              <option value="credito">Crédito</option>
+              <option value="dinheiro">Dinheiro</option>
+          </select>
+          <br>
+          <br>
+      
+          <button type="submit">Enviar</button>
+        </form>
+
+        {% if mensagem %}
+          <p>{{ mensagem }}</p>
+        {% endif %}
 
 </body>
 </html>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
