@@ -8,8 +8,8 @@ def sobre_nos(request):
     return render(request, 'sobre_nos.html')
 
 def cadastro(request):
-    return render(request, 'cadastro.html')
-
+        return render(request, "cadastro.html")
+     
 def cardapio(request):
     return render(request, 'cardapio.html')
 

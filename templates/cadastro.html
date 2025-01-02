@@ -39,10 +39,27 @@
       </div>
     </nav>
 
+        <h1>Faça o seu cadastro</h1>
 
-      <form action="{% url 'contato' %}" method="POST">
-        {% csrf_token %}
-
+        <form action="{% url 'cadastro' %}" method="POST">
+          {% csrf_token %}
+          <label for="">Nome</label>
+          <input type="text" name="nome">
+  
+          <br>
+          <br>
+          <label for="">Email</label>
+          <input type="text" name="email">
+  
+          <br>
+          <br>
+          <label for="">numero</label>
+          <textarea name="numero para contato"></textarea>
+  
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+  
+        {{mensagem}}
 </body>
 </html>
 
