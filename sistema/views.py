@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from contato.models import Contato
-from produtos.models import Cardapio
+from produtos.models import Produto
 from produtos.models import Encomenda
 
 def home(request):
@@ -13,7 +13,7 @@ def cadastro(request):
     return render(request, 'cadastro.html')
 
 def cardapio(request):
-    todos_os_produtos = Cardapio.objects.all()
+    todos_os_produtos = Produto.objects.all()
     produtos_padaria = {
         "lista_produtos": todos_os_produtos
     }
@@ -53,5 +53,9 @@ def encomenda(request):
         return render(request, "encomenda.html")
 
 def novidades(request):
-    return render(request, 'novidades.html')
+    produtos_novidades = Produto.objects.filter(novidade=True)
+    novidades_lista = {
+        "lista_produtos": produtos_novidades
+    }
+    return render(request, 'novidades.html', novidades_lista)
 

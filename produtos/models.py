@@ -1,13 +1,13 @@
 from django.db import models
 from django.utils.timezone import now
 
-class Cardapio(models.Model):
+class Produto(models.Model):
     nome_do_produto = models.CharField(max_length=150)
     descricao = models.CharField(max_length=200)
-    avaliação = models.TextField()
+    avaliacao = models.TextField()
     estoque = models.IntegerField()
     preco = models.DecimalField(decimal_places=2, max_digits=10)
-    Novidade = models.BooleanField()
+    novidade = models.BooleanField()
     foto_do_produto = models.ImageField(upload_to='media/Cardapio', blank=True, null=True)
 
     def __str__(self):
