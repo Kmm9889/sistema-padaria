@@ -22,6 +22,7 @@ from .views import cardapio
 from .views import contato
 from .views import novidades
 from .views import cadastro
+from .views import encomenda
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -33,6 +34,7 @@ urlpatterns = [
     path('cardapio', cardapio, name='cardapio'),
     path('contato', contato , name='contato'),
     path('novidades', novidades, name='novidades'),
+    path('encomenda', encomenda, name="encomenda"),
     path('cadastro', cadastro, name='cadastro'),
     path('admin/', admin.site.urls),
 ]
