@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,89 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recanto do Pão</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
   <style>
-    
-    body {
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
-    }
-
     [data-bs-theme="artesanal"] {
-      --bs-navbar-bg: none;
-      --bs-navbar-color: #F2D7B2;
+      --bs-navbar-bg: #FAD7A0;
+      --bs-navbar-color: #5A3728;
     }
-
+    
     .navbar {
-      background-color: #F2D7B2;
-      background-image: url("{% static 'images/R.jpeg' %}");
-      background-size: cover;
-      background-position: center;
+      background-color: var(--bs-navbar-bg) !important;
       color: var(--bs-navbar-color) !important;
       border: none;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 10px 0;
     }
-
+    
     .navbar .nav-link {
       color: var(--bs-navbar-color) !important;
-      font-family: 'Verdana', sans-serif;
-      font-size: 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 18px;
       font-weight: bold;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
     }
-
+    
     .navbar .nav-link:hover {
-      color: #EFBF9E !important;
+      color: #D08948 !important;
       text-decoration: underline;
     }
 
-    .navbar-brand {
-      font-family: 'Verdana', sans-serif;
-      font-size: 2.5rem;
-      color: #8B5E3C;
-      font-weight: bold;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    #foto-equipe{
+      display: block;
+      margin: auto;
     }
-
-    .navbar-brand:hover {
-      color: #D48A57;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    }
-
-    .carousel-inner img {
-      width: 100%;
-      height: 100vh;
-      object-fit: cover;
-    }
-
-    .carousel-caption {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-family: 'Verdana', sans-serif;
-      font-size: 2.5rem;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-      text-align: center;
-    }
-
-    .carousel-caption h5 {
-      font-weight: bold;
-    }
-
-    .content {
-      padding-top: 100px;
-      text-align: center;
-      padding-bottom: 50px;
-    }
-
   </style>
 </head>
 <body class="container">
@@ -120,22 +67,30 @@
       </div>
     </div>
   </nav>
-
-  <div class="container text-center">
-    <div class="row">
-      <div class="col align-self-start">
-        One of three columns
-      </div>
-      <div class="col align-self-center">
-        One of three columns
-      </div>
-      <div class="col align-self-end">
-        One of three columns
-      </div>
-    </div>
-  </div>
       {% csrf_token %}
 
+      <br>
+      <br>
+
+      <p>A Padaria "Recanto do Pão" foi criada com o propósito de oferecer mais do que produtos de qualidade: buscamos proporcionar uma experiência única aos nossos clientes. Nosso ambiente acolhedor, a variedade de produtos fresquinhos e o atendimento dedicado são pilares fundamentais para transformar cada visita em um momento especial.</p>
+
+      <h5>Nossa meta.</h5>
+
+      <p>A principal meta da padaria é ser reconhecida como um ponto de referência na comunidade. Queremos ser o local onde as pessoas encontram não apenas o pão de cada dia, mas também doces que trazem memórias afetivas, cafés para conversas significativas e um espaço para encontros familiares. Trabalhamos para que nossa padaria se torne um símbolo de excelência e carinho na região.</p>
+
+      <h5>Objetivos.</h5>
+
+      <p>Nosso objetivo é inovar constantemente em nossos produtos e serviços, garantindo que cada item seja produzido com ingredientes de alta qualidade e técnicas artesanais. Ao mesmo tempo, buscamos manter uma conexão próxima com nossos clientes, entendendo suas preferências e incorporando suas sugestões. A satisfação do cliente é o combustível que move nossa equipe.</p>
+
+      <p>Além disso, a Padaria "Recanto do Pão" se compromete com práticas sustentáveis. Procuramos minimizar o desperdício, priorizar fornecedores locais e reduzir o impacto ambiental de nossas operações. Acreditamos que é possível crescer sem deixar de cuidar do meio ambiente e da comunidade ao nosso redor.</p>
+
+      <p>Por fim, temos como missão não apenas alimentar, mas encantar. Acreditamos que cada pão saindo do forno, cada bolo confeitado e cada xícara de café preparada carrega o amor e a dedicação de nossa equipe. É essa paixão pelo que fazemos que nos impulsiona a ir além e criar momentos inesquecíveis para nossos clientes.</p>
+
+      <hr>
+
+      <h5>Aqui está uma foto da nossa equipe completa. Graças ao apoio de todos, nossa padaria consegue transmitir a imagem desejada, sempre cumprindo as metas.</h5>
+
+      <img id='foto-equipe'src="Padarias-comunitárias.jpg" alt="500" width="500">
 </body>
 </html>
 
