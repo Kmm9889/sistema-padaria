@@ -21,11 +21,9 @@ class Encomenda(models.Model):
     preco = models.DecimalField(decimal_places=2, max_digits=10, default=0)
     estoque = models.IntegerField(default=0)
     endereço_da_entrega = models.CharField(max_length=30)
-    Novidade = models.BooleanField(default=False)
     forma_de_pagamento = models.CharField(max_length=50, choices=[
+        ('cartao', 'Cartao'),
         ('pix', 'Pix'),
-        ('debito', 'Debito'),
-        ('credito', 'Credito'),
         ('dinheiro', 'Dinheiro'),
     ],
     default='pix')
