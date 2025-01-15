@@ -2,6 +2,7 @@ from django.shortcuts import render
 from contato.models import Contato
 from produtos.models import Produto
 from produtos.models import Encomenda
+from clientes.models import Cliente
 
 def home(request):
     return render(request, 'home.html')
@@ -10,7 +11,21 @@ def sobre_nos(request):
     return render(request, 'sobre_nos.html')
 
 def cadastro(request):
-        return render(request, "cadastro.html")
+    if request.method == 'POST':
+        _nome = request.POST.get('nome')
+        _email = request.POST.get('email')
+        _numero_de_telefone = request.POST.get('numero_de_telefone')
+        _endereco = request.POST.get('endereco')
+        _foto_do_cliente = request.FILES.get('foto_do_cliente')
+        cliente = Cliente(nome=_nome, email=_email, numero_de_telefone=_numero_de_telefone, endereco=_endereco, foto_do_cliente=_foto_do_cliente)
+        cliente.save()
+        
+        dados = {
+            "mensagem": "Você foi cadastrado com sucesso!"
+        }
+        return render(request, 'cadastro.html', dados)
+    else:
+        return render(request, 'cadastro.html')
      
 def cardapio(request):
     todos_os_produtos = Produto.objects.all()

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,42 +6,137 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recanto do Pão</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
   <style>
-    [data-bs-theme="artesanal"] {
-      --bs-navbar-bg: #FAD7A0;
-      --bs-navbar-color: #5A3728;
+    body {
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
     }
-    
+
     .navbar {
-      background-color: var(--bs-navbar-bg) !important;
-      color: var(--bs-navbar-color) !important;
+      background-color: #F2D7B2;
+      background-image: url("{% static 'images/pngtree-vintage-bakery-delights-breads-and-cakes-on-wooden-table-image_16013441.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      color: #F2D7B2;
       border: none;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 10px 20px;
     }
-    
+
+    .navbar ul {
+      display: flex;
+      justify-content: flex-start;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
     .navbar .nav-link {
-      color: var(--bs-navbar-color) !important;
+      color: #F2D7B2;
       font-family: 'Courier New', monospace;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
-      letter-spacing: 1.2px;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 10px 15px;
+      text-align: center;
+      text-decoration: none;
     }
-    
+
     .navbar .nav-link:hover {
-      color: #D08948 !important;
+      color: #EFBF9E;
       text-decoration: underline;
     }
 
-    #foto-equipe{
+    .navbar-brand {
+      font-family: 'Georgia', serif;
+      font-size: 2.5rem;
+      color: #B98B6C;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #D48A57;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .container-fluid, .container {
+      padding: 0 15px;
+      max-width: 100%;
+    }
+
+    .navbar-collapse {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .content {
+      padding: 30px;
+      max-width: 100%;
+      background-color: #FAF3E0;
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .content h5 {
+      font-family: 'Georgia', serif;
+      font-size: 1.7rem;
+      color: #5C4033;
+    }
+
+    .content p {
+      font-family: 'Georgia', serif;
+      font-size: 1.2rem;
+      color: #704634;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .imagem-artesanal {
       display: block;
-      margin: auto;
+      margin: 40px auto;
+      width: 60%;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      border: 5px solid #8B5E3C;
+    }
+
+    hr {
+      margin-top: 40px;
+      border: 1px solid #52392b;
+    }
+
+    @media (max-width: 768px) {
+      .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+      }
     }
   </style>
-</head>
-<body class="container">
 
-  <nav class="navbar navbar-expand-lg" data-bs-theme="artesanal">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="/home/">Recanto do Pão</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Alternar navegação">
@@ -67,31 +163,29 @@
       </div>
     </div>
   </nav>
-      {% csrf_token %}
 
-      <br>
-      <br>
+  <div class="content">
+    <p>A Padaria "Recanto do Pão" foi criada com o propósito de oferecer mais do que produtos de qualidade: buscamos proporcionar uma experiência única aos nossos clientes. Nosso ambiente acolhedor, a variedade de produtos fresquinhos e o atendimento dedicado são pilares fundamentais para transformar cada visita em um momento especial.</p>
 
-      <p>A Padaria "Recanto do Pão" foi criada com o propósito de oferecer mais do que produtos de qualidade: buscamos proporcionar uma experiência única aos nossos clientes. Nosso ambiente acolhedor, a variedade de produtos fresquinhos e o atendimento dedicado são pilares fundamentais para transformar cada visita em um momento especial.</p>
+    <h5>Nossa meta.</h5>
+    <p>A principal meta da padaria é ser reconhecida como um ponto de referência na comunidade. Queremos ser o local onde as pessoas encontram não apenas o pão de cada dia, mas também doces que trazem memórias afetivas, cafés para conversas significativas e um espaço para encontros familiares. Trabalhamos para que nossa padaria se torne um símbolo de excelência e carinho na região.</p>
 
-      <h5>Nossa meta.</h5>
+    <h5>Objetivos.</h5>
+    <p>Nosso objetivo é inovar constantemente em nossos produtos e serviços, garantindo que cada item seja produzido com ingredientes de alta qualidade e técnicas artesanais. Ao mesmo tempo, buscamos manter uma conexão próxima com nossos clientes, entendendo suas preferências e incorporando suas sugestões. A satisfação do cliente é o combustível que move nossa equipe.</p>
 
-      <p>A principal meta da padaria é ser reconhecida como um ponto de referência na comunidade. Queremos ser o local onde as pessoas encontram não apenas o pão de cada dia, mas também doces que trazem memórias afetivas, cafés para conversas significativas e um espaço para encontros familiares. Trabalhamos para que nossa padaria se torne um símbolo de excelência e carinho na região.</p>
+    <p>Além disso, a Padaria "Recanto do Pão" se compromete com práticas sustentáveis. Procuramos minimizar o desperdício, priorizar fornecedores locais e reduzir o impacto ambiental de nossas operações. Acreditamos que é possível crescer sem deixar de cuidar do meio ambiente e da comunidade ao nosso redor.</p>
 
-      <h5>Objetivos.</h5>
+    <p>Por fim, temos como missão não apenas alimentar, mas encantar. Acreditamos que cada pão saindo do forno, cada bolo confeitado e cada xícara de café preparada carrega o amor e a dedicação de nossa equipe. É essa paixão pelo que fazemos que nos impulsiona a ir além e criar momentos inesquecíveis para nossos clientes.</p>
 
-      <p>Nosso objetivo é inovar constantemente em nossos produtos e serviços, garantindo que cada item seja produzido com ingredientes de alta qualidade e técnicas artesanais. Ao mesmo tempo, buscamos manter uma conexão próxima com nossos clientes, entendendo suas preferências e incorporando suas sugestões. A satisfação do cliente é o combustível que move nossa equipe.</p>
+    <hr>
 
-      <p>Além disso, a Padaria "Recanto do Pão" se compromete com práticas sustentáveis. Procuramos minimizar o desperdício, priorizar fornecedores locais e reduzir o impacto ambiental de nossas operações. Acreditamos que é possível crescer sem deixar de cuidar do meio ambiente e da comunidade ao nosso redor.</p>
+    <h5>Aqui está uma foto da nossa equipe completa. Graças ao apoio de todos, nossa padaria consegue transmitir a imagem desejada, sempre cumprindo as metas.</h5>
 
-      <p>Por fim, temos como missão não apenas alimentar, mas encantar. Acreditamos que cada pão saindo do forno, cada bolo confeitado e cada xícara de café preparada carrega o amor e a dedicação de nossa equipe. É essa paixão pelo que fazemos que nos impulsiona a ir além e criar momentos inesquecíveis para nossos clientes.</p>
+    <img src="{% static 'images/Padarias-comunitárias.jpg'%}" alt="" class="imagem-artesanal">
 
-      <hr>
+  </div>
 
-      <h5>Aqui está uma foto da nossa equipe completa. Graças ao apoio de todos, nossa padaria consegue transmitir a imagem desejada, sempre cumprindo as metas.</h5>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-      <img id='foto-equipe'src="Padarias-comunitárias.jpg" alt="500" width="500">
 </body>
 </html>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

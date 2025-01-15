@@ -3,7 +3,8 @@ from django.db import models
 class Cliente(models.Model):
     nome = models.CharField(max_length=150)
     email = models.EmailField()
-    foto_do_cliente = models.ImageField(upload_to='media/Clientes', blank=True, null=True)
+    numero_de_telefone = models.CharField(max_length=15)
+    foto_do_cliente = models.ImageField(upload_to='Clientes/', blank=True, null=True)
     endereco = models.CharField(max_length=200)
 
     def __str__(self):
