@@ -18,9 +18,8 @@ class Encomenda(models.Model):
     Produto_reservado = models.CharField(max_length=100)
     numero_de_telefone = models.CharField(max_length=15)
     descricao = models.CharField(max_length=3000)
-    preco = models.DecimalField(decimal_places=2, max_digits=10, default=0)
-    estoque = models.IntegerField(default=0)
-    endereço_da_entrega = models.CharField(max_length=30)
+    total = models.DecimalField(decimal_places=2, max_digits=10, default=0)
+    endereço_da_entrega = models.CharField(max_length=100)
     forma_de_pagamento = models.CharField(max_length=50, choices=[
         ('cartao', 'Cartao'),
         ('pix', 'Pix'),
@@ -28,6 +27,7 @@ class Encomenda(models.Model):
     ],
     default='pix')
     data_e_hora_da_compra = models.DateTimeField(default=now)
+    data_e_hora_da_encomenda = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return self.nome_da_pessoa
