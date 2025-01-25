@@ -4,7 +4,6 @@ from django.utils.timezone import now
 class Produto(models.Model):
     nome_do_produto = models.CharField(max_length=150)
     descricao = models.CharField(max_length=3000)
-    avaliacao = models.TextField()
     estoque = models.IntegerField()
     preco = models.DecimalField(decimal_places=2, max_digits=10)
     novidade = models.BooleanField()
@@ -17,7 +16,6 @@ class Encomenda(models.Model):
     nome_da_pessoa = models.CharField(max_length=100)
     Produto_reservado = models.CharField(max_length=100)
     numero_de_telefone = models.CharField(max_length=15)
-    descricao = models.CharField(max_length=3000)
     total = models.DecimalField(decimal_places=2, max_digits=10, default=0)
     endereço_da_entrega = models.CharField(max_length=100)
     forma_de_pagamento = models.CharField(max_length=50, choices=[
