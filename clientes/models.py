@@ -10,7 +10,7 @@ class Cliente(models.Model):
     def __str__(self):
         return self.nome
 
-class CartaoFidelidate(models.Model):
+class CartaoFidelidade(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     data_visita = models.DateField(auto_now_add=True)
 

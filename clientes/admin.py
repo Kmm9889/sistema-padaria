@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cliente, CartaoFidelidate
+from .models import Cliente, CartaoFidelidade
 
 
 @admin.register(Cliente)
@@ -21,8 +21,8 @@ class ClienteAdmin(admin.ModelAdmin):
     ordering = ('nome',)
 
 
-@admin.register(CartaoFidelidate)
-class CartaoFidelidateAdmin(admin.ModelAdmin): 
+@admin.register(CartaoFidelidade)
+class CartaoFidelidadeAdmin(admin.ModelAdmin): 
     list_display = (
         'cliente',
         'data_visita',

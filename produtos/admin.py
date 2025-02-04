@@ -36,7 +36,7 @@ class EncomendaAdmin(admin.ModelAdmin):
         'total',
         'forma_de_pagamento',
         'data_e_hora_da_compra',
-        'data_e_hora_da_encomenda',
+        'data_e_hora_da_entrega',
     )
     
     search_fields = (
@@ -48,7 +48,7 @@ class EncomendaAdmin(admin.ModelAdmin):
     list_filter = (
         'forma_de_pagamento',
         'data_e_hora_da_compra',
-        'data_e_hora_da_encomenda',
+        'data_e_hora_da_entrega',
     )
     
     date_hierarchy = 'data_e_hora_da_compra'
