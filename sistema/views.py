@@ -54,10 +54,10 @@ def encomenda(request):
     if request.method == "POST":
         _nome_da_pessoa = request.POST.get("nome_da_pessoa")
         _numero_de_telefone = request.POST.get("numero_de_telefone")
-        _Produto_reservado = request.POST.get("Produto_reservado")
+        _produtos_encomendados = request.POST.get("produtos_encomendados")
         _endereço_da_entrega = request.POST.get("endereço_da_entrega")
         _forma_de_pagamento = request.POST.get("forma_de_pagamento")
-        encomenda = Encomenda(forma_de_pagamento=_forma_de_pagamento, nome_da_pessoa=_nome_da_pessoa, numero_de_telefone=_numero_de_telefone, endereço_da_entrega=_endereço_da_entrega, Produto_reservado=_Produto_reservado, )
+        encomenda = Encomenda(forma_de_pagamento=_forma_de_pagamento, nome_da_pessoa=_nome_da_pessoa, numero_de_telefone=_numero_de_telefone, endereço_da_entrega=_endereço_da_entrega, produtos_encomendados=_produtos_encomendados, )
         encomenda.save()
         dados = {
             "mensagem": "Sua encomenda foi feita com sucesso!"

@@ -14,7 +14,7 @@ class Produto(models.Model):
     
 class Encomenda(models.Model):
     nome_da_pessoa = models.CharField(max_length=100)
-    Produto_reservado = models.TextField(max_length=3000)
+    produtos_encomendados = models.TextField(max_length=3000)
     numero_de_telefone = models.CharField(max_length=15)
     total = models.DecimalField(decimal_places=2, max_digits=10, default=0)
     endereço_da_entrega = models.CharField(max_length=100)

@@ -31,7 +31,7 @@ class ProdutoAdmin(admin.ModelAdmin):
 class EncomendaAdmin(admin.ModelAdmin):
     list_display = (
         'nome_da_pessoa',
-        'Produto_reservado',
+        'produtos_encomendados',
         'numero_de_telefone',
         'total',
         'forma_de_pagamento',
@@ -41,7 +41,7 @@ class EncomendaAdmin(admin.ModelAdmin):
     
     search_fields = (
         'nome_da_pessoa',
-        'Produto_reservado',
+        'produtos_encomendados',
         'numero_de_telefone',
     )
     
