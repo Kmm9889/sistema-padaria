@@ -7,194 +7,9 @@
   <title>Recanto do Pão</title>
   <link rel="shortcut icon" href="{% static 'images/Recanto.ico' %}" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #faf5e9;
-      margin: 0;
-      padding: 0;
-      font-family: 'Courier New', monospace;
-    }
-  
-    .navbar {
-      background-color: #F2D7B2;
-      background-image: url("{% static 'images/pngtree-vintage-bakery-delights-breads-and-cakes-on-wooden-table-image_16013441.jpg' %}");
-      background-size: cover;
-      background-position: center;
-      border: none;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      position: relative;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 10px 20px;
-    }
-  
-    .navbar ul {
-      display: flex;
-      justify-content: space-around;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-  
-    .navbar .nav-link {
-      color: #F2D7B2;
-      font-family: 'Courier New', monospace;
-      font-size: 20px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-      padding: 10px 15px;
-    }
-  
-    .navbar .nav-link:hover {
-      color: #EFBF9E;
-      text-decoration: underline;
-    }
-  
-    .navbar-brand {
-      font-family: 'Georgia', serif;
-      font-size: 2.5rem;
-      color: #B98B6C;
-      font-weight: bold;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-      transition: color 0.3s ease;
-      letter-spacing: 0px;
-    }
-  
-    .navbar-brand:hover {
-      color: #D48A57;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    }
-  
-    .container-fluid, .container {
-      padding: 0 15px;
-      max-width: 100%;
-    }
-  
-    h1 {
-      text-align: center;
-      font-family: 'Merriweather', serif;
-      color: #8B5E3C;
-      margin-bottom: 30px;
-      font-size: 2.5rem;
-    }
-  
-    .row {
-      margin: 0;
-      padding: 1rem;
-      gap: 1.5rem;
-      justify-content: center;
-    }
-  
-    .card {
-      border: 1px solid #E8C9A8;
-      border-radius: 15px;
-      background-color: #FFF5E1;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      font-family: 'Courier New', monospace;
-      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    }
-  
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    }
-  
-    .card-title {
-      color: #8A5035;
-      font-weight: bold;
-    }
-  
-    .card img {
-      width: 100%;
-      height: 170px;
-      margin: 20px auto 0;
-      display: block;
-      border-radius: 15px;
-    }
-  
-    .card-text {
-      color: #5A3728;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-  
-    .btn-primary {
-      background-color: #D08948;
-      border: none;
-      font-weight: bold;
-    }
-  
-    .btn-primary:hover {
-      background-color: #B56F3D;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    }
-  
-    .main-content {
-      padding-top: 0;
-    }
-  
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-  
-    .modal.active {
-      display: flex;
-    }
-  
-    .modal-content {
-      background-color: #FFF5E1;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 500px;
-      text-align: center;
-      max-height: 90vh;
-      overflow-y: auto;
-      word-wrap: break-word;
-    }
-  
-    
-    .modal-content h5 {
-      color: #8A5035;
-      font-weight: bold;
-    }
-    
-    .modal-content p {
-      color: #5A3728;
-    }
-    
-    .modal-content img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .modal-close {
-      background-color: #D08948;
-      border: none;
-      color: #fff;
-      font-size: 18px;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-  
-    .modal-close:hover {
-      background-color: #B56F3D;
-    }
-  </style>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
+<body class="page-cardapio">
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="/home/">Recanto do Pão</a>
@@ -232,10 +47,28 @@
         <div class="card-body">
           <h5 class="card-title">{{produto.nome_do_produto}}</h5>
           <p class="card-text">{{produto.descricao}}</p>
-          <p class="card-preco" style="color: #4E3629; font-size: 18px; font-family: 'Merriweather', serif; font-weight: normal; margin-top: 8px; text-align: center;">
-            R$ {{produto.preco}}
+          <p class="card-preco">
+            {% if produto.desconto > 0 %}
+              <span class="preco-antigo">R$ {{produto.preco}}</span>
+              <span class="preco-desconto">R$ {{produto.preco_com_desconto}}</span>
+              <span class="desconto-badge">-{{produto.desconto}}%</span>
+            {% else %}
+              R$ {{produto.preco}}
+            {% endif %}
           </p>
-          <button class="btn btn-primary" onclick="openModal('{{ produto.foto_do_produto.url }}', '{{produto.nome_do_produto}}', '{{produto.descricao}}', '{{produto.preco}}')">Ver detalhes</button>
+          <p class="card-estoque">
+            {% if produto.estoque > 0 %}
+              <span class="estoque-disponivel">Estoque: {{produto.estoque}} unidades</span>
+            {% else %}
+              <span class="estoque-indisponivel">Indisponível</span>
+            {% endif %}
+          </p>
+          <div class="card-buttons">
+            <button class="btn btn-primary" onclick="openModal('{{ produto.foto_do_produto.url }}', '{{produto.nome_do_produto}}', '{{produto.descricao}}', '{{produto.preco}}')">Ver detalhes</button>
+            {% if produto.estoque > 0 %}
+            <button class="btn-add-cart" onclick="addToCart({{produto.id}})"><span class="plus-icon">+</span></button>
+            {% endif %}
+          </div>
         </div>
       </div>
       {% endfor %}
@@ -247,12 +80,178 @@
       <img id="modal-img" src="" alt="">
       <h5 id="modal-title"></h5>
       <p id="modal-desc"></p>
-      <p id="modal-price" style="font-weight: bold; font-size: 18px;"></p>
+      <p id="modal-price"></p>
       <button class="modal-close" onclick="closeModal()">Fechar</button>
     </div>
   </div>
 
+  <button class="cart-fab" onclick="toggleCartPanel()" id="cartFab">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+    </svg>
+    <span class="cart-badge" id="cartBadge">0</span>
+  </button>
+
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-panel-header">
+      <h4>Carrinho</h4>
+      <button class="cart-close-btn" onclick="toggleCartPanel()">&times;</button>
+    </div>
+    <div class="cart-panel-items" id="cartItems"></div>
+    <div class="cart-panel-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">R$ 0,00</span>
+      </div>
+      <button class="btn-checkout" onclick="irParaEncomenda()">Encomendar</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
   <script>
+    function getCSRFToken() {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var parts = cookies[i].trim().split('=');
+        if (parts[0] === 'csrftoken') return parts[1];
+      }
+      return '';
+    }
+
+    function showToast(msg, type) {
+      var t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast show ' + (type || '');
+      clearTimeout(t._hide);
+      t._hide = setTimeout(function() { t.className = 'toast'; }, 3000);
+    }
+
+    function toggleCartPanel() {
+      document.getElementById('cartPanel').classList.toggle('active');
+      if (document.getElementById('cartPanel').classList.contains('active')) {
+        loadCart();
+      }
+    }
+
+    function addToCart(productId) {
+      fetch('/cart/add/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': getCSRFToken()
+        },
+        body: JSON.stringify({product_id: productId, quantity: 1})
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.status === 'ok') {
+          updateCartBadge();
+          showToast('Item adicionado ao carrinho!', 'success');
+        }
+      });
+    }
+
+    function removeFromCart(productId) {
+      fetch('/cart/remove/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': getCSRFToken()
+        },
+        body: JSON.stringify({product_id: productId})
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.status === 'ok') {
+          loadCart();
+          updateCartBadge();
+        }
+      });
+    }
+
+    function updateQuantity(productId, delta) {
+      fetch('/cart/update/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': getCSRFToken()
+        },
+        body: JSON.stringify({product_id: productId, quantity: delta})
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.status === 'ok') {
+          loadCart();
+          updateCartBadge();
+        }
+      });
+    }
+
+    function updateCartBadge() {
+      fetch('/cart/get/')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var count = 0;
+        for (var id in data.items) {
+          count += data.items[id].quantity;
+        }
+        document.getElementById('cartBadge').textContent = count;
+      });
+    }
+
+    function loadCart() {
+      fetch('/cart/get/')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var items = data.items || {};
+        var container = document.getElementById('cartItems');
+        var html = '';
+        var count = 0;
+
+        for (var id in items) {
+          var item = items[id];
+          count += item.quantity;
+          html +=
+            '<div class="cart-item">' +
+              '<div class="cart-item-info">' +
+                '<span class="cart-item-name">' + item.name + '</span>' +
+                '<span class="cart-item-price">R$ ' + item.price + ' cada</span>' +
+              '</div>' +
+              '<div class="cart-item-controls">' +
+                '<button class="cart-qty-btn" onclick="removeFromCart(' + id + ')">&minus;</button>' +
+                '<span class="cart-qty">' + item.quantity + '</span>' +
+                '<button class="cart-qty-btn" onclick="addToCart(' + id + ')">+</button>' +
+                '<span class="cart-item-subtotal">R$ ' + item.subtotal + '</span>' +
+              '</div>' +
+            '</div>';
+        }
+
+        if (!html) {
+          html = '<div class="cart-empty">Seu carrinho está vazio</div>';
+        }
+
+        container.innerHTML = html;
+        document.getElementById('cartBadge').textContent = count;
+        document.getElementById('cartTotal').textContent = 'R$ ' + data.total;
+      });
+    }
+
+    function irParaEncomenda() {
+      fetch('/cart/get/')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var items = data.items || {};
+        if (Object.keys(items).length === 0) {
+          showToast('Carrinho vazio!', 'error');
+          return;
+        }
+        window.location.href = '/encomenda';
+      });
+    }
+
+    updateCartBadge();
+
     function openModal(image, title, description, price) {
       document.getElementById('modal-img').src = image;
       document.getElementById('modal-title').textContent = title;

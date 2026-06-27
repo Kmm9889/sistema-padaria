@@ -8,7 +8,8 @@ class ClienteAdmin(admin.ModelAdmin):
         'nome',
         'email',
         'numero_de_telefone',
-        'foto_do_cliente',
+        'rua',
+        'bairro',
         'endereco',
     )
     
@@ -16,6 +17,11 @@ class ClienteAdmin(admin.ModelAdmin):
         'nome',
         'email',
         'numero_de_telefone',
+        'bairro',
+    )
+    
+    list_filter = (
+        'bairro',
     )
     
     ordering = ('nome',)

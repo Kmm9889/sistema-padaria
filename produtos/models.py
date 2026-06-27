@@ -6,11 +6,19 @@ class Produto(models.Model):
     descricao = models.TextField(max_length=3000)
     estoque = models.IntegerField()
     preco = models.DecimalField(decimal_places=2, max_digits=10)
+    desconto = models.IntegerField(default=0, help_text="Desconto em porcentagem (0 a 100)")
     novidade = models.BooleanField()
     foto_do_produto = models.ImageField(upload_to='Cardapio', blank=True, null=True)
 
     def __str__(self):
         return self.nome_do_produto
+
+    @property
+    def preco_com_desconto(self):
+        if self.desconto > 0:
+            from decimal import Decimal
+            return self.preco * (Decimal(100) - Decimal(self.desconto)) / Decimal(100)
+        return self.preco
     
 class Encomenda(models.Model):
     nome_da_pessoa = models.CharField(max_length=100)
@@ -29,3 +37,4 @@ class Encomenda(models.Model):
 
     def __str__(self):
         return self.nome_da_pessoa
+ 

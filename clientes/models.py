@@ -5,6 +5,8 @@ class Cliente(models.Model):
     email = models.EmailField()
     numero_de_telefone = models.CharField(max_length=15)
     foto_do_cliente = models.ImageField(upload_to='Clientes/', blank=True, null=True)
+    rua = models.CharField(max_length=200, blank=True, null=True)
+    bairro = models.CharField(max_length=100, blank=True, null=True)
     endereco = models.CharField(max_length=200)
 
     def __str__(self):

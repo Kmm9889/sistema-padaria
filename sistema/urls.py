@@ -16,13 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import home
-from .views import sobre_nos
-from .views import cardapio
-from .views import contato
-from .views import novidades
-from .views import cadastro
-from .views import encomenda
+from .views import home, sobre_nos, cardapio, contato, novidades, cadastro, encomenda
+from .views import cart_add, cart_remove, cart_update, cart_get, cart_checkout, cadastro_rapido
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -36,7 +31,17 @@ urlpatterns = [
     path('novidades', novidades, name='novidades'),
     path('encomenda', encomenda, name="encomenda"),
     path('cadastro', cadastro, name='cadastro'),
+    path('cadastro_rapido/', cadastro_rapido, name='cadastro_rapido'),
     path('admin/', admin.site.urls),
+    path('cart/add/', cart_add, name='cart_add'),
+    path('cart/remove/', cart_remove, name='cart_remove'),
+    path('cart/update/', cart_update, name='cart_update'),
+    path('cart/get/', cart_get, name='cart_get'),
+    path('cart/checkout/', cart_checkout, name='cart_checkout'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = 'Administração - Recanto do Pão'
+admin.site.index_title = 'Painel de Gestão'
+admin.site.site_title = 'Recanto do Pão | Sistema Administrativo'
